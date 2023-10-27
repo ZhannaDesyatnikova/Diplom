@@ -1,0 +1,20 @@
+Задание 1.
+
+SELECT  C.login, COUNT(O.id) AS         
+               delivery_count
+FROM Orders O
+INNER JOIN Couriers C ON O.courierld = C.id
+WHERE O.inDelivery = true
+GROUP BY C.login;
+
+Задание 2
+
+SELECT tracker,
+CASE
+WHEN finished = true THEN 2
+WHEN cancelled = true THEN -1
+WHEN inDelivery = true THEN 1
+ELSE O
+END AS status
+FROM orders;
+
